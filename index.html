@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeri Foto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Galeri Foto</h1>
+    <p>Jelajahi koleksi foto berdasarkan kategori, atau cari berdasarkan judul.</p>
+  </header>
+
+  <div class="tools">
+    <div class="filters" id="filters" role="group" aria-label="Filter kategori"></div>
+    <div class="search">
+      <input id="q" type="search" placeholder="Cari foto…" aria-label="Cari foto">
+    </div>
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Detail foto">
+    <button class="x" id="close" aria-label="Tutup">✕</button>
+    <button class="prev" id="prev" aria-label="Foto sebelumnya">‹</button>
+    <figure>
+      <img id="lbImg" alt="">
+      <figcaption><b id="lbTitle"></b><small id="lbMeta"></small></figcaption>
+    </figure>
+    <button class="next" id="next" aria-label="Foto berikutnya">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

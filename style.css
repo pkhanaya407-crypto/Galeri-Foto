@@ -1,0 +1,45 @@
+:root{--bg:#f5f7fb;--card:#fff;--ink:#16203a;--mut:#6b7590;--pri:#2f5bff;--line:#e3e8f2}
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+
+header{max-width:1100px;margin:0 auto;padding:40px 20px 16px}
+h1{font-size:clamp(28px,5vw,42px)}
+header p{color:var(--mut);margin-top:6px}
+
+/* Filter & pencarian */
+.tools{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px}
+.filters button.active{background:var(--pri);border-color:var(--pri);color:#fff}
+.search input{padding:10px 16px;border:1px solid var(--line);border-radius:999px;font:inherit;font-size:14px;width:240px;max-width:100%}
+.filters button:focus-visible,.search input:focus-visible,.item:focus-visible,.lb button:focus-visible{outline:3px solid #9bb2ff;outline-offset:2px}
+
+/* Grid responsif */
+.grid{max-width:1100px;margin:0 auto;padding:8px 20px 48px;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.item{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;transition:transform .2s,box-shadow .2s}
+.item:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(30,50,110,.12)}
+.item img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.item div{padding:12px 14px}
+.item b{display:block;font-size:15px}
+.item span{font-size:12px;color:var(--mut)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:60px 0}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;background:rgba(10,14,28,.88);display:none;align-items:center;justify-content:center;z-index:10;padding:20px}
+.lb.open{display:flex;animation:fade .25s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.lb figure{max-width:900px;width:100%;color:#fff;text-align:center}
+.lb img{width:100%;max-height:70vh;object-fit:contain;border-radius:12px;background:#000}
+.lb figcaption{margin-top:14px}
+.lb figcaption small{display:block;color:#aab4d4;margin-top:4px}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.15);color:#fff;width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.3)}
+.x{top:18px;right:18px}
+.prev{left:18px;top:50%}
+.next{right:18px;top:50%}
+
+@media(max-width:600px){
+  .prev{left:6px;top:auto;bottom:24px}
+  .next{right:6px;top:auto;bottom:24px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
